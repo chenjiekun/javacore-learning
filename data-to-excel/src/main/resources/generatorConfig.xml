@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包-->
+    <classPathEntry location="D:\Program Files\repository\com\oracle\ojdbc6\11.2.0.1.0\ojdbc6-11.2.0.1.0.jar" />
+    <context id='MySqlContext' targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+        <property name="javaFileEncoding" value="UTF-8" />
+        <property name="mapUnderscoreToCamelCase" value="false" />
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="false" />
+        </commentGenerator>
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@192.168.127.143:1521:wjjzh" userId="hlwjs" password="hlwjs"/>
+        <!--targetProject自动生成实体类对象的存放位置-->
+        <javaModelGenerator targetPackage="com.cmit.hlwjs.datatoexcel.model" targetProject="src\main\java">
+            <!--从数据库返回的值被清理前后的空格-->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--生成mybatis的sqlMap配置文件的存放位置-->
+        <sqlMapGenerator targetPackage="com.cmit.hlwjs.datatoexcel.mapper" targetProject="src\main\resources" />
+        <!--生成mybatis对应接口位置-->
+        <javaClientGenerator targetPackage="com.cmit.hlwjs.datatoexcel.mapper" targetProject="src\main\java" type="XMLMAPPER" />
+
+        <!--tableName:用于自动生成代码的数据库表；domainObjectName：对应数据库表的javaBean类名-->
+        <table tableName="rpt_data_mm_ap" domainObjectName="RptDataMmAp"></table>
+    </context>
+</generatorConfiguration>
